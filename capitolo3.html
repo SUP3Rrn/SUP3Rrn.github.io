@@ -80,15 +80,29 @@ Oltre ai 128 caratteri originali, include caratteri speciali, simboli e lettere.
 	}
 </style>
 <br><h3>Occupazione memoria di un immagine!</h3>
-<br>Per determinare l'occupazione di memoria di un'immagine, bisogna calcolare la quantità di memoria
+<br>Per determinare l'occupazione di <b>memoria di un'immagine</b>, bisogna calcolare la quantità di memoria
 <br>necessaria per memorizzare tutti i dati che compongono l'immagine stessa. Questo dipende da vari 
 <br>fattori, tra cui la risoluzione dell'immagine, la profondità di colore (bit per pixel) e il formato dell'immagine.
 <br>Esempio: Risoluzione data 580x640 a tonalità di grigio(8bit)  in MB
+<table>
 <br>occupazione1 = 580x640x8
 <br>occupazione2 = occupazione1 : 8 = byte
 <br>occupazione3 = occupazione2 : 2^10 = kb
 <br>occupazione4 = occupazione3 : 2^10 = Mb
-
+</table>
+<style>
+	table {
+		border-style: solid;
+		border-width: 1px;
+		border-color: black;
+	}
+</style>
+<br> ciò significa che bisogna fare:
+<br> occ1 = risoluzione x profondità(n bit)
+<br> occ2 = occ1 : n bit dell'immagine
+<br> occ3 = occ2 : 2^10
+<br> occ3 = occ3 : 2^10
+<br>ecc..
 
 
 <p> <h2> <a href="indice.html"> Torna all'indice </a> </h2>
