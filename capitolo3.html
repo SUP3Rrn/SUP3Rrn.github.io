@@ -88,23 +88,12 @@ Oltre ai 128 caratteri originali, include caratteri speciali, simboli e lettere.
 <br>necessaria per memorizzare tutti i dati che compongono l'immagine stessa. Questo dipende da vari 
 <br>fattori, tra cui la risoluzione dell'immagine, la profondità di colore (bit per pixel) e il formato dell'immagine.
 <br><b>Esempio: Risoluzione data 580x640 a tonalità di grigio(8bit)  in MB</b>
-<table>
+
 <br>occupazione1 = 580x640x8
 <br>occupazione2 = occupazione1 : 8 = byte
 <br>occupazione3 = occupazione2 : 2^10 = kb
 <br>occupazione4 = occupazione3 : 2^10 = Mb
-</table>
-<style>
-	table {
-		border-style: solid;
-		border-width: 1px;
-		border-color: black;
-	}
-	br {
-		border-style: solid;
-		border-width: 1px;
-		border-color: black;
-</style>
+
 <br> ciò significa che bisogna fare:
 <br> occ1 = risoluzione x profondità(n bit)
 <br> occ2 = occ1 : 8 = byte
