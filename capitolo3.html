@@ -40,12 +40,25 @@ Oltre ai 128 caratteri originali, include caratteri speciali, simboli e lettere.
 <br><li>Unicode è un sistema di codifica universale progettato per rappresentare i caratteri di tutte le lingue del mondo.</li>
 
 </ul>
+<div>
 <h2 id="Video">Codifica di video</h2>
-<p>L'occupazione video è un termine che può riferirsi alla quantità di spazio di archiviazione o banda che un video richiede, a
-<p>seconda del contesto in cui viene utilizzato. In generale, riguarda quanto "spazio" un file video occupa, sia in termini di <b>storage</b>
+<p>L'occupazione video è un termine che può riferirsi alla quantità di spazio di archiviazione o banda che un video richiede
+<p>a seconda del contesto in cui viene utilizzato. In generale, riguarda quanto "spazio" un file video occupa, sia in termini di <b>storage</b>
 <p>(memoria) su un dispositivo sia in termini di banda (larghezza di banda) durante il trasferimento o lo streaming.
+</div>
 <p><b>Occupazione memoria:</b>
 <p> Occupazione video1 = Risoluzione x Profondità x 30(fps) x TempoSecondi
+  <style>
+    div {
+        border: 10px;
+        width: 250px;
+        border-color: purple;
+        border-style: ridge;
+        padding: 10px;
+
+    }
+</style>
+
 
 <h2 id="Codifica di immagini">Codifica di immagini</h2>
 <br>Per codificare un immagine:
@@ -75,12 +88,12 @@ Oltre ai 128 caratteri originali, include caratteri speciali, simboli e lettere.
   table {
 		border-style: solid;
 		border-width: 1px;
-		border-color: Black;
+		border-color: purple;
 	}
 	td {
 		border-style: solid;
 		border-width: 1px;
-		border-color: black;
+		border-color: white;
 	}
 </style>
 <br><h3>Occupazione memoria di un immagine!</h3>
@@ -94,19 +107,49 @@ Oltre ai 128 caratteri originali, include caratteri speciali, simboli e lettere.
 <br>occupazione3 = occupazione2 : 2^10 = kb
 <br>occupazione4 = occupazione3 : 2^10 = Mb
 
-<p> ciò significa che bisogna fare:
-<br> occ1 = risoluzione x profondità(n bit)
-<br> occ2 = occ1 : 8 = byte
-<br> occ3 = occ2 : 2^10 = kb
-<br> occ3 = occ3 : 2^10 = mb
-<br>ecc..
-	<p><b>Tecnica vettoriale!</b>
+<table>
+<tr>
+   <td> ciò significa che bisogna fare:</td>
+  </tr>
+<tr>
+<td> occ1 = risoluzione x profondità(n bit)</td>
+</tr>
+<tr>
+<td> occ2 = occ1 : 8 = byte</td>
+</tr>
+<tr>
+<td> occ3 = occ2 : 2^10 = kb</td>
+</tr>
+<tr>
+<td> occ3 = occ3 : 2^10 = mb</td>
+</tr>
+<tr>
+<td>ecc..</td>
+</tr>
+</table>  
+
+<style>
+table {
+  border-style: solid;
+  border-width: 1px;
+  border-color: purple;
+}
+td {
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+}
+</style>
+
+
+  <p><b>TECNICA VETTORIALE!</b>
 <br>La tecnica vettoriale ha la caratteristica che quando l'immagine viene zoomata non si sgrana.
 <br>Questa tecnica viene utilizzata nelle aziende per creare loghi, questo perché il logo è un
 <br>simbolo molto importante per un azienda perché da valore!
 <br> <b>- Gli algoritmi di compressione</b> servono per ridurre lo spazio che occupa un file.
-<br>Ad esempio "zip". Ci sono due tipi di compressione: Kossy(jpeg) e Loss ness(gif e png).
+<br>Ad esempio "zip". Ci sono due tipi di compressione: <b>Kossy(jpeg) e Loss ness(gif e png).</b>
 
+<div>
 		<h2 id="Audio">Codifiche audio</h2>
 <br>La codifica audio è il processo di conversione di un segnale audio (come una registrazione o un suono)
 <br>in un formato digitale per l'archiviazione o la trasmissione. Questo processo coinvolge diverse tecniche
@@ -119,5 +162,33 @@ Oltre ai 128 caratteri originali, include caratteri speciali, simboli e lettere.
 <h3>Trasmissione o archiviazione!</h3>
 <br>Una volta codificato, l'audio può essere archiviato su dispositivi di memorizzazione
 <br>(come hard disk o cloud) o trasmesso in streaming attraverso Internet.
+</div>
+
+
+<style>
+  div {
+      border: 10px;
+      width: 250px;
+      border-color: purple;
+      border-style: ridge;
+      padding: 10px;
+
+  }
+</style>
 
 <p> <h2> <a href="indice.html"> Torna all'indice </a> </h2>
+
+  <style>
+    body {
+       background-image: url("fondo-scuro-dettagliato-di-struttura-di-stile-del-grunge_1048-14598.avif");
+       }
+       </style>
+
+
+<head>
+    <style>
+    body {
+      color: white;
+    }
+    </style>
+    </head>
