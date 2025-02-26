@@ -3,20 +3,40 @@
 <p> le codifiche sono di diversi tipi: </p>
 <br> Ascii (Tastiera)
 <br> <a href="#Ascii">Ascii</a>
-<br> Numeri (Interi e Reali)
-<br> <a href="#Numeri I e R">Numeri I e R</a>
 <br> Testo
 <br> <a href="#Testo">Codifiche di testi</a>
+<br> Numeri (Interi e Reali)
+<br> <a href="#Numeri I e R">Numeri I e R</a>
 <br> Video
 <br> <a href="#Video">Codifica video</a>
 <br> Immagini
 <br> <a href="#Codifica di immagini">Codifica delle immagini</a>
 <br> Audio
 <br> <a href="#Audio">Codifica di audio</a>
-<h2 id="Ascii">Ascii</h2>
+<div>
+<h2 id="Ascii">Ascii</h2>    <img width="950px" src="ascii-codes-table.webp">
 <br> ASCII è una codifica a <u> 7 bit che permette di rappresentare 128 caratteri diversi </u> (da 0 a 127).
 <br> Ogni carattere è rappresentato da un numero binario a 7 bit (ad esempio, 01000001 per la lettera maiuscola A).
-<h2 id="Numeri I e R">Numeri I e R</h2>
+<br>L'ASCII originale è stato progettato negli anni '60 ed è stato ampiamente utilizzato per rappresentare i caratteri alfanumerici,
+<br>simboli di punteggiatura, e alcuni caratteri di controllo come ritorno a capo o tabulazione. 
+<br>La codifica ASCII standard non supporta caratteri di lingue non inglesi o simboli speciali al di fuori di quelli definiti nei primi 128 caratteri.
+<br>Unicode (UTF-16):
+<br>Unicode è una codifica molto più estesa che consente di rappresentare tutti i caratteri di tutte le lingue del mondo, oltre a simboli, emoji, e caratteri speciali.
+<br>UTF-16 è una modalità di codifica di Unicode che utilizza 16 bit (2 byte) per rappresentare ogni carattere. In UTF-16, la maggior parte dei caratteri 
+<br>comuni richiede 16 bit, ma alcuni caratteri meno comuni possono essere rappresentati con 32 bit (4 byte) utilizzando coppie di surrogati.
+<h2 id="Testo">Codifiche di testi</h2>
+<ul>
+<li>ASCII (American Standard Code for Information Interchange)</li>
+  
+<br><li>Extended ASCII (o ASCII esteso)L'Extended ASCII utilizza 8 bit, consentendo di rappresentare 256 caratteri.
+Oltre ai 128 caratteri originali, include caratteri speciali, simboli e lettere.</li>
+  
+<br><li>Unicode è un sistema di codifica universale progettato per rappresentare i caratteri di tutte le lingue del mondo.</li>
+
+</ul>
+</div>
+<div>
+<h2 id="Numeri I e R">Numeri Interi e Reali</h2>    <img width="435px" src="unnamed.jpg">  
 <br> I numeri interi in informatica sono numeri senza parte frazionaria e possono essere rappresentati come numeri positivi o negativi, incluso lo zero.
 <br> Esempi di rappresentazione:
 <ol>
@@ -30,22 +50,13 @@
 <li>Interi: rappresentano valori senza decimali, e la loro codifica è semplice, ma limitata dalla dimensione in bit.</li>
 <li>Reali: includono numeri con decimali e sono rappresentati in modo più complesso (floating point), per gestire valori più grandi e con maggiore precisione.</li>
 </ul>
-<h2 id="Testo">Codifiche di testi</h2>
-<ul>
-<li>ASCII (American Standard Code for Information Interchange)</li>
-  
-<br><li>Extended ASCII (o ASCII esteso)L'Extended ASCII utilizza 8 bit, consentendo di rappresentare 256 caratteri.
-Oltre ai 128 caratteri originali, include caratteri speciali, simboli e lettere.</li>
-  
-<br><li>Unicode è un sistema di codifica universale progettato per rappresentare i caratteri di tutte le lingue del mondo.</li>
-
-</ul>
-<div>
+</div>
+<div>   <img width="550px" src="img-topFormats.webp">
 <h2 id="Video">Codifica di video</h2>
 <p>L'occupazione video è un termine che può riferirsi alla quantità di spazio di archiviazione o banda che un video richiede
 <p>a seconda del contesto in cui viene utilizzato. In generale, riguarda quanto "spazio" un file video occupa, sia in termini di <b>storage</b>
 <p>(memoria) su un dispositivo sia in termini di banda (larghezza di banda) durante il trasferimento o lo streaming.
-</div>
+
 <p><b>Occupazione memoria:</b>
 <p> Occupazione video1 = Risoluzione x Profondità x 30(fps) x TempoSecondi
   <style>
@@ -58,8 +69,9 @@ Oltre ai 128 caratteri originali, include caratteri speciali, simboli e lettere.
 
     }
 </style>
+</div>
 
-
+<div>
 <h2 id="Codifica di immagini">Codifica di immagini</h2>
 <br>Per codificare un immagine:
 <table>
@@ -97,10 +109,10 @@ Oltre ai 128 caratteri originali, include caratteri speciali, simboli e lettere.
 	}
 </style>
 <br><h3>Occupazione memoria di un immagine!</h3>
-<br>Per determinare l'occupazione di <b>memoria di un'immagine</b>, bisogna calcolare la quantità di memoria
+<br>Per determinare l'occupazione di <b>memoria di un'immagine</b>, bisogna calcolare la quantità di memoria  <img width="550px" src="Articolo_risoluz_video_4k_confronto.png">
 <br>necessaria per memorizzare tutti i dati che compongono l'immagine stessa. Questo dipende da vari 
 <br>fattori, tra cui la risoluzione dell'immagine, la profondità di colore (bit per pixel) e il formato dell'immagine.
-<br><b>Esempio: Risoluzione data 580x640 a tonalità di grigio(8bit)  in MB</b>
+<br><b>Esempio: Risoluzione data 580x640 a tonalità di grigio(8bit)  in MB</b>      
 
 <br>occupazione1 = 580x640x8
 <br>occupazione2 = occupazione1 : 8 = byte
@@ -147,7 +159,39 @@ td {
 <br>Questa tecnica viene utilizzata nelle aziende per creare loghi, questo perché il logo è un
 <br>simbolo molto importante per un azienda perché da valore!
 <br> <b>- Gli algoritmi di compressione</b> servono per ridurre lo spazio che occupa un file.
-<br>Ad esempio "zip". Ci sono due tipi di compressione: <b>Kossy(jpeg) e Loss ness(gif e png).</b>
+<br>Ad esempio "zip". Ci sono due tipi di compressione: <b>Kossy(jpeg) e Loss ness(gif e png).</b></p>
+<img width="550px" src="immagini-bitmap-immagini-vettoriali.jpg">
+
+<br><b>BITMAP!</br></b>
+<br>Una bitmap (abbreviata in BMP) è un tipo di formato di immagine
+<br>digitale che rappresenta un'immagine come una matrice di pixel,
+<br>dove ogni pixel è un punto dell'immagine che contiene
+<br>informazioni su colore e luminosità. Il termine "bitmap" deriva dalla combinazione delle parole
+<br>bit (la più piccola unità di informazione, che può essere 0 o 1) e map (mappa),                          
+<br>indicando che l'immagine è una mappa di bit. 
+<br>In pratica, una bitmap memorizza ogni singolo pixel dell'immagine come una
+<br>sequenza di bit, che definisce il colore di quel pixel. 
+  <br>Ogni pixel è rappresentato con una quantità di bit che
+  <br>dipende dalla profondità di colore dell'immagine (ad esempio, 24 bit per una rappresentazione
+  <br>a colori RGB standard, dove ogni canale di colore (rosso, verde, blu) è rappresentato da 8 bit).
+
+Caratteristiche principali della bitmap:
+Risoluzione: La qualità dell'immagine dipende dalla risoluzione, che è il numero di pixel in orizzontale e verticale (es. 1920x1080). Maggiore è la risoluzione, maggiore è la qualità e il dettaglio dell'immagine.
+
+Profondità di colore: Indica quanti bit sono utilizzati per rappresentare il colore di ciascun pixel. Le immagini a 24 bit, ad esempio, usano 8 bit per ogni colore primario (rosso, verde e blu), permettendo una gamma di 16,7 milioni di colori.
+Dimensione del file: Poiché ogni pixel è memorizzato come un dato, le immagini bitmap tendono a essere più pesanti rispetto ad altri formati, come JPEG o PNG. La dimensione del file dipende dalla risoluzione e dalla profondità di colore.
+
+
+
+</div>
+
+
+<style>
+  img {
+    position: absolute;
+    left: 650px;
+  }
+  </style>
 
 <div>
 		<h2 id="Audio">Codifiche audio</h2>
@@ -159,16 +203,13 @@ td {
 <br><b>MP3:</b> molto popolare per la sua compressione con perdita.
 <br><b>WAV:</b> formato non compresso, solitamente di alta qualità.
 <br><b>FLAC:</b> formato lossless che preserva la qualità audio mentre comprime il file.
-<h3>Trasmissione o archiviazione!</h3>
-<br>Una volta codificato, l'audio può essere archiviato su dispositivi di memorizzazione
-<br>(come hard disk o cloud) o trasmesso in streaming attraverso Internet.
 </div>
 
 
 <style>
   div {
       border: 10px;
-      width: 250px;
+      width: 550px;
       border-color: purple;
       border-style: ridge;
       padding: 10px;
