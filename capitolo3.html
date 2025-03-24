@@ -203,6 +203,39 @@ Dimensione del file: Poiché ogni pixel è memorizzato come un dato, le immagini
 <br><b>MP3:</b> molto popolare per la sua compressione con perdita.
 <br><b>WAV:</b> formato non compresso, solitamente di alta qualità.
 <br><b>FLAC:</b> formato lossless che preserva la qualità audio mentre comprime il file.
+<h3>Campionamento</h3>
+<br>Il primo passo nella codifica audio è il campionamento del segnale analogico.
+<br>Il suono è continuo eanalogico, ma i computer lavorano con segnali digitali,
+<br>quindi il suono viene "tagliato" in intervalli regolari.
+<br>Questo processo si chiama campionamento e determina la frequenza di campionamento
+<br>(in hertz, Hz), che è il numero di campioni presi al secondo.
+<br>Più è alta la frequenza di campionamento, maggiore è la qualità del suono riprodotto.
+<p><b>Esempi comuni di frequenze di campionamento:</b>
+<ol>
+  <p><li>44,1 kHz: È la frequenza usata nei CD audio, il che significa che il segnale audio viene campionato 44.100 volte al secondo.</li>
+<p><p><li>48 kHz: Usato nei film e in altre applicazioni professionali.</li>
+  <p><li>96 kHz e 192 kHz: Utilizzati in ambiti professionali di alta qualità come la produzione musicale e la registrazione in studio.</li>
+
+</ol>
+<h3>Quantizzazione</h3>
+<br>Dopo aver campionato il segnale, il passo successivo è la quantizzazione, cioè l'assegnazione di un valore numerico a ciascun campione.
+<br>Questo valore rappresenta l'intensità del suono a quel preciso istante nel tempo.
+<br>La risoluzione della quantizzazione, spesso espressa in bit, determina la precisione con cui vengono
+<br>rappresentati questi valori.
+
+<p><b>Ad esempio:</b></p>
+
+<ul>
+  <p><li>16 bit: Utilizzato nei CD audio, offre una gamma dinamica sufficiente per la maggior parte delle applicazioni audio.
+
+  <p><li>24 bit: Utilizzato in ambito professionale per una qualità audio superiore.</li>
+
+    <p><li>32 bit: Utilizzato in applicazioni di editing e mixaggio di alta qualità, con maggiore precisione.</li>
+
+<p><b><i>La quantizzazione è cruciale perché influisce sulla qualità del suono. Maggiore è la profondità in bit, maggiore è la fedeltà nel rappresentare il suono originale.
+</b></i>
+</ul>
+
 </div>
 
 
@@ -234,5 +267,11 @@ Dimensione del file: Poiché ogni pixel è memorizzato come un dato, le immagini
     body {
       color: white;
     }
+    a {
+        color: purple;
+     }
+     </style>
+     </head>
+
     </style>
     </head>
