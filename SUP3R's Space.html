@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUP3R — Creator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── Reset & Base ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:       #F5F2EC;
+      --linen:       #EDE9E0;
+      --dust:        #E0DBD0;
+      --stone:       #BFB8AA;
+      --ash:         #8A8278;
+      --char:        #4A4540;
+      --ink-light:   #2A2520;
+      --ink:         #1A1714;
+      --sepia:       #7A5C3A;
+      --sepia-light: #F0E8DC;
+
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans:  'Inter', system-ui, sans-serif;
+
+      --max: 1100px;
+      --pad: clamp(1.25rem, 5vw, 3rem);
+      --nav-h: 64px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--char);
+      font-size: 15px;
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Utilities ──────────────────────────────────────── */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    .label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    .serif { font-family: var(--serif); }
+
+    /* ─── NAV ────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: var(--paper);
+      border-bottom: 0.5px solid var(--dust);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--char);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-links .nav-cta {
+      font-weight: 500;
+      color: var(--sepia);
+    }
+
+    .nav-links .nav-cta::after {
+      content: ' ↗';
+      font-size: 11px;
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 0.5px;
+      background: var(--ink);
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      padding: clamp(5rem, 10vw, 9rem) 0 clamp(4rem, 8vw, 7rem);
+      border-bottom: 0.5px solid var(--dust);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+    }
+
+    .hero-eyebrow {
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--sepia);
+    }
+
+    .hero-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--char);
+      max-width: 400px;
+      margin-bottom: 2.25rem;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 11px 24px;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--ink-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--char);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 400;
+      padding: 10px 24px;
+      border-radius: 3px;
+      border: 0.5px solid var(--stone);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--char);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .hero-stat-row {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hero-stat-num {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 11px;
+      color: var(--ash);
+      font-weight: 400;
+    }
+
+    .hero-quote {
+      border-left: 2px solid var(--sepia);
+      padding-left: 1rem;
+    }
+
+    .hero-quote p {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-style: italic;
+      color: var(--char);
+      line-height: 1.65;
+    }
+
+    .hero-divider {
+      width: 40px;
+      height: 0.5px;
+      background: var(--stone);
+      margin: 0;
+    }
+
+    /* ─── SEZIONE ETICHETTA ──────────────────────────────── */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 0.5px solid var(--dust);
+    }
+
+    .section-link {
+      font-size: 12px;
+      color: var(--sepia);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    .section-link::after { content: ' →'; }
+    .section-link:hover { opacity: 0.7; }
+
+    /* ─── VIDEO GRID ─────────────────────────────────────── */
+    .video-section {
+      padding: clamp(3.5rem, 7vw, 6rem) 0;
+      border-bottom: 0.5px solid var(--dust);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .video-card {
+      display: block;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .video-thumb {
+      background: var(--linen);
+      border-radius: 4px;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 12px;
+      border: 0.5px solid var(--dust);
+      transition: border-color 0.2s;
+    }
+
+    .video-card:hover .video-thumb {
+      border-color: var(--stone);
+    }
+
+    .video-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .video-card:hover .video-play { opacity: 1; }
+
+    .video-play svg {
+      width: 36px;
+      height: 36px;
+      color: var(--ink);
+    }
+
+    .video-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--dust) 0%, var(--linen) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-thumb-placeholder svg {
+      width: 28px;
+      height: 28px;
+      color: var(--stone);
+    }
+
+    .video-meta {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ash);
+      margin-bottom: 6px;
+    }
+
+    .video-title {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.4;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .video-card:hover .video-title { color: var(--sepia); }
+
+    /* Video card in evidenza (prima) */
+    .video-card--featured .video-thumb {
+      aspect-ratio: 16 / 10;
+    }
+
+    .video-card--featured .video-title {
+      font-size: 17px;
+    }
+
+    /* ─── BIO ────────────────────────────────────────────── */
+    .bio-section {
+      background: var(--ink);
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    .bio-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .bio-left {}
+
+    .bio-name {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--paper);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .bio-name em {
+      font-style: italic;
+      color: var(--stone);
+    }
+
+    .bio-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--char);
+      border: 0.5px solid var(--ash);
+      margin-bottom: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .bio-avatar svg {
+      width: 36px;
+      height: 36px;
+      color: var(--stone);
+    }
+
+    .bio-label { color: var(--ash); }
+
+    .bio-right {}
+
+    .bio-text {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--stone);
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+
+    .bio-text strong {
+      color: var(--paper);
+      font-weight: 400;
+    }
+
+    .bio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2.25rem;
+    }
+
+    .bio-tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 0.5px solid var(--ash);
+      color: var(--ash);
+      letter-spacing: 0.03em;
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      color: var(--paper);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 11px 24px;
+      border-radius: 3px;
+      border: 0.5px solid var(--ash);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-outline-light:hover {
+      border-color: var(--paper);
+      background: rgba(245, 242, 236, 0.06);
+      transform: translateY(-1px);
+    }
+
+    /* ─── TOPIC STRIP ────────────────────────────────────── */
+    .topics-section {
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      border-bottom: 0.5px solid var(--dust);
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--dust);
+      border: 0.5px solid var(--dust);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .topic-cell {
+      background: var(--paper);
+      padding: 1.75rem 1.5rem;
+      transition: background 0.2s;
+      cursor: default;
+    }
+
+    .topic-cell:hover { background: var(--linen); }
+
+    .topic-num {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--dust);
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .topic-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .topic-desc {
+      font-size: 12px;
+      color: var(--ash);
+      line-height: 1.55;
+    }
+
+    /* ─── NEWSLETTER / CTA STRIP ─────────────────────────── */
+    .cta-section {
+      padding: clamp(3.5rem, 7vw, 6rem) 0;
+      border-bottom: 0.5px solid var(--dust);
+    }
+
+    .cta-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .cta-title {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: var(--ink);
+      font-weight: 400;
+      line-height: 1.3;
+      margin-top: 0.75rem;
+    }
+
+    .cta-title em { font-style: italic; color: var(--sepia); }
+
+    .cta-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cta-desc {
+      font-size: 13px;
+      color: var(--ash);
+      line-height: 1.65;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .email-input {
+      flex: 1;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--linen);
+      border: 0.5px solid var(--dust);
+      border-radius: 3px;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .email-input::placeholder { color: var(--stone); }
+    .email-input:focus { border-color: var(--stone); }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      padding: 2.5rem 0;
+      border-top: 0.5px solid var(--dust);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--ink);
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--stone);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .footer-social a {
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+    }
+
+    .footer-social a:hover { color: var(--ink); }
+
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ─── ANIMAZIONI ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .anim { opacity: 0; }
+    .anim.visible { animation: fadeUp 0.6s ease forwards; }
+
+    .anim:nth-child(1) { animation-delay: 0s; }
+    .anim:nth-child(2) { animation-delay: 0.1s; }
+    .anim:nth-child(3) { animation-delay: 0.18s; }
+    .anim:nth-child(4) { animation-delay: 0.26s; }
+    .anim:nth-child(5) { animation-delay: 0.34s; }
+
+    .hero-eyebrow { animation: fadeUp 0.5s ease 0.05s both; }
+    .hero-title   { animation: fadeUp 0.6s ease 0.12s both; }
+    .hero-desc    { animation: fadeUp 0.6s ease 0.22s both; }
+    .hero-actions { animation: fadeUp 0.6s ease 0.32s both; }
+    .hero-right   { animation: fadeUp 0.7s ease 0.18s both; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .hero-inner  { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-right  { order: -1; }
+      .hero-stat-row { gap: 2rem; }
+      .video-grid  { grid-template-columns: 1fr 1fr; }
+      .bio-inner   { grid-template-columns: 1fr; gap: 2.5rem; }
+      .topics-grid { grid-template-columns: 1fr 1fr; }
+      .cta-inner   { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 560px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .video-grid  { grid-template-columns: 1fr; }
+      .topics-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ══════════════════════════════════════════════ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">[SUP3R]</a>
+      <ul class="nav-links">
+        <li><a href="#video">Video</a></li>
+        <li><a href="#bio">Chi sono</a></li>
+        <li><a href="#argomenti">Argomenti</a></li>
+        <li><a href="https://youtube.com/@sup3rsuppa?si=vDIwnkqTBtKkUo6h" class="nav-cta">YouTube</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+
+        <div class="hero-left">
+          <p class="label hero-eyebrow">Creator · IT</p>
+          <h1 class="hero-title">
+            Ciao, sono<br>
+            <em>SUP3R.</em><br>
+            Faccio video su<br>[Minecraft].
+          </h1>
+          <p class="hero-desc">
+            Provo ad intrattenere tutti, mi rende felice.
+          </p>
+          <div class="hero-actions">
+            <a href="https://youtube.com/@sup3rsuppa?si=vDIwnkqTBtKkUo6h" class="btn-primary">Guarda i video</a>
+            <a href="#bio" class="btn-secondary">Chi sono</a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-divider"></div>
+          <div class="hero-stat-row">
+            <div class="hero-stat">
+              <span class="hero-stat-num">2.07k</span>
+              <span class="hero-stat-label">iscritti YouTube</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">167</span>
+              <span class="hero-stat-label">video pubblicati</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num">1</span>
+              <span class="hero-stat-label">anni di contenuti</span>
+            </div>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="hero-quote">
+            <p>"Creo contenuti perché mia passione <br> e sogno da quando sono piccolo."</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ VIDEO ══════════════════════════════════════════════ -->
+  <section class="video-section" id="video">
+    <div class="wrap">
+      <div class="section-header">
+        <span class="label">Ultimi video</span>
+        <a href="https://youtube.com/@sup3rsuppa?si=vDIwnkqTBtKkUo6h" class="section-link">Vedi tutti su YouTube</a>
+      </div>
+
+      <div class="video-grid">
+        
+        <a href="https://youtu.be/ztyt-BGfLGs" class="video-card video-card--featured anim">
+          <div class="video-thumb"> <img class="video-thumb-img" src="ai copertina.jpg" alt="Copertina video">
+            <div class="video-thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </div>
+            <div class="video-play">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+              </svg>
+            </div>
+          </div>
+          <p class="video-meta">Design · 18 min · 3 giorni fa</p>
+          <h3 class="video-title">Come ho ridisegnato il mio spazio di lavoro partendo da zero</h3>
+        </a>
+
+        <a href="link video" class="video-card anim">
+          <div class="video-thumb">
+            <div class="video-thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </div>
+            <div class="video-play">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+              </svg>
+            </div>
+          </div>
+          <p class="video-meta">Riflessioni · 12 min · 1 sett fa</p>
+          <h3 class="video-title">Cosa ho imparato dopo un anno di contenuti</h3>
+        </a>
+
+        <a href="https://youtube.com" class="video-card anim">
+          <div class="video-thumb">
+            <div class="video-thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </div>
+            <div class="video-play">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+              </svg>
+            </div>
+          </div>
+          <p class="video-meta">Processo · 9 min · 2 sett fa</p>
+          <h3 class="video-title">Il mio setup per girare e montare da casa</h3>
+        </a>
+
+        <a href="https://youtube.com" class="video-card anim">
+          <div class="video-thumb">
+            <div class="video-thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </div>
+            <div class="video-play">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+              </svg>
+            </div>
+          </div>
+          <p class="video-meta">Lifestyle · 14 min · 3 sett fa</p>
+          <h3 class="video-title">Una settimana senza social: resoconto onesto</h3>
+        </a>
+
+        <a href="https://youtube.com" class="video-card anim">
+          <div class="video-thumb">
+            <div class="video-thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </div>
+            <div class="video-play">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+              </svg>
+            </div>
+          </div>
+          <p class="video-meta">Tools · 11 min · 1 mese fa</p>
+          <h3 class="video-title">Le app che uso ogni giorno per creare contenuti</h3>
+        </a>
+
+        <a href="https://youtube.com" class="video-card anim">
+          <div class="video-thumb">
+            <div class="video-thumb-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+            </div>
+            <div class="video-play">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+              </svg>
+            </div>
+          </div>
+          <p class="video-meta">Riflessioni · 7 min · 1 mese fa</p>
+          <h3 class="video-title">Perché ho smesso di inseguire l'algoritmo</h3>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BIO ════════════════════════════════════════════════ -->
+  <section class="bio-section" id="bio">
+    <div class="wrap">
+      <div class="bio-inner">
+
+        <div class="bio-left">
+          <p class="label bio-label">Chi sono</p>
+          <div class="bio-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+          </div>
+          <h2 class="bio-name">
+            [Nome],<br><em>creator<br>da Milano.</em>
+          </h2>
+        </div>
+
+        <div class="bio-right">
+          <p class="bio-text">
+            Breve paragrafo biografico scritto in prima persona.
+            <strong>Racconta il perché, non solo il cosa.</strong>
+            Cosa ti ha portato a creare contenuti, cosa ti appassiona, e cosa vuoi che
+            le persone portino via dai tuoi video.<br><br>
+            Scrivi in modo caldo, diretto, come parleresti a qualcuno che hai appena incontrato.
+            Niente liste di achievement — solo la tua voce autentica.
+          </p>
+          <div class="bio-tags">
+            <span class="bio-tag">Design</span>
+            <span class="bio-tag">Fotografia</span>
+            <span class="bio-tag">Slow life</span>
+            <span class="bio-tag">Milano</span>
+            <span class="bio-tag">Contenuti</span>
+          </div>
+          <a href="https://youtube.com" class="btn-outline-light">Vieni su YouTube →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ARGOMENTI ══════════════════════════════════════════ -->
+  <section class="topics-section" id="argomenti">
+    <div class="wrap">
+      <div class="section-header">
+        <span class="label">Di cosa parlo</span>
+      </div>
+      <div class="topics-grid">
+        <div class="topic-cell">
+          <div class="topic-num">01</div>
+          <h3 class="topic-name">Design</h3>
+          <p class="topic-desc">Processo creativo, estetica quotidiana e come costruire ambienti che ispirano.</p>
+        </div>
+        <div class="topic-cell">
+          <div class="topic-num">02</div>
+          <h3 class="topic-name">Contenuti</h3>
+          <p class="topic-desc">Come creare video in modo sostenibile, senza bruciare l'entusiasmo.</p>
+        </div>
+        <div class="topic-cell">
+          <div class="topic-num">03</div>
+          <h3 class="topic-name">Riflessioni</h3>
+          <p class="topic-desc">Pensieri sul vivere consapevolmente nell'era della distrazione continua.</p>
+        </div>
+        <div class="topic-cell">
+          <div class="topic-num">04</div>
+          <h3 class="topic-name">Processo</h3>
+          <p class="topic-desc">Setup, strumenti, flusso di lavoro — come faccio quello che faccio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA / NEWSLETTER ═══════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="wrap">
+      <div class="cta-inner">
+        <div>
+          <p class="label">Resta aggiornato</p>
+          <h2 class="cta-title">Nessuna notifica.<br>Solo un <em>aggiornamento</em><br>quando vale la pena.</h2>
+        </div>
+        <div class="cta-form">
+          <p class="cta-desc">Una mail ogni tanto — quando esce un video nuovo o ho qualcosa di interessante da condividere. Niente spam, promesso.</p>
+          <div class="input-row">
+            <input type="email" class="email-input" placeholder="la tua email">
+            <button class="btn-primary" type="button">Iscriviti</button>
+          </div>
+          <p style="font-size:11px; color: var(--stone);">Nessun tracking. Disiscrizione in un click.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="footer-logo">[Nome]</span>
+          <span class="footer-copy">© 2025 · Fatto con cura a Milano</span>
+        </div>
+        <div class="footer-social">
+          <!-- YouTube -->
+          <a href="https://youtube.com" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- Mail -->
+          <a href="mailto:ciao@nome.it" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ JS ═════════════════════════════════════════════════ -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
